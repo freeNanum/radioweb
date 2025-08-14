@@ -36,54 +36,73 @@ export const stations: Station[] = [
     group: "MBC",
     name: "표준FM",
     frequency: "95.9MHz",
-    url: `${PROXY_URL}https://sminiplay.imbc.com/aacplay.ashx?agent=webapp&channel=sfm`,
+    url: `${PROXY_URL}http://miniplay.imbc.com/AAC/STANDARD.m3u8`,
   },
   {
     group: "MBC",
     name: "FM4U",
     frequency: "91.9MHz",
-    url: `${PROXY_URL}http://serpent0.duckdns.org:8088/mbc-fm4u`,
-  },
-  {
-    group: "SBS",
-    name: "Power FM",
-    frequency: "107.7MHz",
-    url: `${PROXY_URL}http://serpent0.duckdns.org:8088/sbs-powerfm`,
-  },
-  {
-    group: "SBS",
-    name: "Love FM",
-    frequency: "103.5MHz",
-    url: `${PROXY_URL}http://serpent0.duckdns.org:8088/sbs-lovefm`,
+    url: `${PROXY_URL}http://miniplay.imbc.com/AAC/FM4U.m3u8`,
   },
   {
     group: "CBS",
     name: "표준FM",
     frequency: "98.1MHz",
-    url: `${PROXY_URL}http://aac.cbs.co.kr/cbs981/cbs981.stream/playlist.m3u8`,
+    url: `${PROXY_URL}http://aac.cbs.co.kr/cbs981/_definst_/cbs981.stream/playlist.m3u8`,
   },
   {
     group: "CBS",
     name: "음악FM",
     frequency: "93.9MHz",
-    url: `${PROXY_URL}http://aac.cbs.co.kr/cbs939/cbs939.stream/playlist.m3u8`,
+    url: `${PROXY_URL}http://aac.cbs.co.kr/cbs939/_definst_/cbs939.stream/playlist.m3u8`,
   },
   {
     group: "TBS",
     name: "FM 교통방송",
     frequency: "95.1MHz",
-    url: `${PROXY_URL}http://tbs.hscdn.com/tbsradio/fm/playlist.m3u8`,
-  },
-  {
-    group: "TBS",
-    name: "eFM",
-    frequency: "101.3MHz",
-    url: `${PROXY_URL}http://tbs.hscdn.com/tbsradio/efm/playlist.m3u8`,
+    url: `${PROXY_URL}http://tbs.hscdn.com/tbsfm/m/playlist.m3u8`,
   },
   {
     group: "EBS",
     name: "FM",
     frequency: "104.5MHz",
-    url: `${PROXY_URL}http://ebsonairiosaod.ebs.co.kr/fmr/fmaac/playlist.m3u8`,
+    url: `${PROXY_URL}http://ebsonair.ebs.co.kr/fm/bandiapp/live.m3u8`,
+  },
+  // New stations from Korea,South.json with direct streaming URLs
+  {
+    group: "KBS World Radio",
+    name: "German Stream",
+    frequency: "", // Not available
+    url: `${PROXY_URL}http://live.world.kbs.gscdn.com/cocotv/_definst_/CH00005/playlist.m3u8`,
+  },
+  {
+    group: "KBS World Radio",
+    name: "Channel 1",
+    frequency: "", // Not available
+    url: `${PROXY_URL}http://kbsrki.gscdn.com/kbsrki1/_definst_/kbsrki1.stream/playlist.m3u8`,
+  },
+  {
+    group: "KBS World Radio",
+    name: "Channel 2",
+    frequency: "", // Not available
+    url: `${PROXY_URL}http://kbsrki.gscdn.com/kbsrki2/_definst_/kbsrki2.stream/playlist.m3u8`,
+  },
+  {
+    group: "KBS World Radio",
+    name: "Channel 3",
+    frequency: "", // Not available
+    url: `${PROXY_URL}http://kbsrki.gscdn.com/kbsrki3/_definst_/kbsrki3.stream/playlist.m3u8`,
+  },
+  {
+    group: "FEBC",
+    name: "극동방송 (FM)",
+    frequency: "", // Not available
+    url: `${PROXY_URL}http://mlive2.febc.net:1935/live/seoulfm/playlist.m3u8`,
+  },
+  {
+    group: "Gugak",
+    name: "FM 99.1",
+    frequency: "99.1MHz",
+    url: `${PROXY_URL}http://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8`,
   },
 ];

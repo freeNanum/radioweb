@@ -17,17 +17,39 @@ app.get('/proxy', (req, res) => {
 
   console.log(`[Proxy] Attempting to proxy URL: ${url}`);
 
-  request({ url: url, followRedirect: true, encoding: null })
-    .on('error', function(err) {
-      console.error('[Proxy] Request error for', url, ':', err);
-      res.status(500).send('Error fetching the stream');
-    })
-    .on('response', function(response) {
-      console.log(`[Proxy] Response status for ${url}: ${response.statusCode}`);
-      // Optionally, log headers if needed for debugging
-      // console.log('[Proxy] Response headers:', response.headers);
-    })
-    .pipe(res);
+  if (url.includes('cfpwwwapi.kbs.co.kr')) {
+    request({ url: url, followRedirect: true }, (error, response, body) => {
+      if (error) {
+        console.error('[Proxy] KBS API request error for', url, ':', error);
+        return res.status(500).send('Error fetching from KBS API');
+      }
+
+      try {
+        const data = JSON.parse(body);
+        const streamUrl = data.channel_item[0].service_url;
+        console.log(`[Proxy] KBS stream URL: ${streamUrl}`);
+        request({ url: streamUrl, followRedirect: true, encoding: null })
+          .on('error', function(err) {
+            console.error('[Proxy] Request error for', streamUrl, ':', err);
+            res.status(500).send('Error fetching the stream');
+          })
+          .pipe(res);
+      } catch (e) {
+        console.error('[Proxy] Error parsing KBS API response or getting stream URL:', e);
+        res.status(500).send('Error processing KBS API response');
+      }
+    });
+  } else {
+    request({ url: url, followRedirect: true, encoding: null })
+      .on('error', function(err) {
+        console.error('[Proxy] Request error for', url, ':', err);
+        res.status(500).send('Error fetching the stream');
+      })
+      .on('response', function(response) {
+        console.log(`[Proxy] Response status for ${url}: ${response.statusCode}`);
+      })
+      .pipe(res);
+  }
 });
 
 app.listen(PORT, () => {
