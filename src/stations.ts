@@ -36,31 +36,31 @@ export const stations: Station[] = [
     group: "MBC",
     name: "표준FM",
     frequency: "95.9MHz",
-    url: `${PROXY_URL}http://miniplay.imbc.com/AAC/STANDARD.m3u8`,
+    url: `${PROXY_URL}https://minisw.imbc.com/dsfm/_definst_/sfm.stream/chunklist.m3u8`,
   },
   {
     group: "MBC",
     name: "FM4U",
     frequency: "91.9MHz",
-    url: `${PROXY_URL}http://miniplay.imbc.com/AAC/FM4U.m3u8`,
+    url: `${PROXY_URL}https://minimw.imbc.com/dmfm/_definst_/mfm.stream/chunklist.m3u8`,
   },
   {
     group: "CBS",
     name: "표준FM",
     frequency: "98.1MHz",
-    url: `${PROXY_URL}http://aac.cbs.co.kr/cbs981/_definst_/cbs981.stream/playlist.m3u8`,
+    url: `${PROXY_URL}https://m-aac.cbs.co.kr/mweb_cbs981/_definst_/cbs981.stream/playlist.m3u8`,
   },
   {
     group: "CBS",
     name: "음악FM",
     frequency: "93.9MHz",
-    url: `${PROXY_URL}http://aac.cbs.co.kr/cbs939/_definst_/cbs939.stream/playlist.m3u8`,
+    url: `${PROXY_URL}https://m-aac.cbs.co.kr/mweb_cbs939/_definst_/cbs939.stream/chunklist.m3u8`,
   },
   {
     group: "TBS",
-    name: "FM 교통방송",
-    frequency: "95.1MHz",
-    url: `${PROXY_URL}http://tbs.hscdn.com/tbsfm/m/playlist.m3u8`,
+    name: "eFM",
+    frequency: "101.3MHz", // Assuming 101.3MHz for eFM
+    url: `${PROXY_URL}https://cdnefm.tbs.seoul.kr/tbs/_definst_/tbs_efm_web_720.smil/chunklist_b1128000.m3u8`,
   },
   {
     group: "EBS",
@@ -97,12 +97,24 @@ export const stations: Station[] = [
     group: "FEBC",
     name: "극동방송 (FM)",
     frequency: "", // Not available
-    url: `${PROXY_URL}http://mlive2.febc.net:1935/live/seoulfm/playlist.m3u8`,
+    url: `${PROXY_URL}https://mlive2.febc.net/live/seoulfm/playlist.m3u8`,
   },
   {
     group: "Gugak",
     name: "FM 99.1",
     frequency: "99.1MHz",
     url: `${PROXY_URL}http://mgugaklive.nowcdn.co.kr/gugakvideo/gugakvideo.stream/playlist.m3u8`,
+  },
+  {
+    group: "Arirang",
+    name: "Radio",
+    frequency: "", // Not provided
+    url: `${PROXY_URL}https://amdlive-ch03-ctnd-com.akamaized.net/arirang_3ch/smil:arirang_3ch.smil/chunklist_b3256000_sleng.m3u8`,
+  },
+  {
+    group: "YTN",
+    name: "라디오FM",
+    frequency: "", // Not provided
+    url: `${PROXY_URL}https://radiolive.ytn.co.kr/radio/_definst_/20211118_fmlive/medialist_1726141820918041463_hls.m3u8`,
   },
 ];
