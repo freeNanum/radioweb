@@ -1,46 +1,74 @@
-# Getting Started with Create React App
+# 한국 라디오 웹 앱 (Korean Radio Web App)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 소개
 
-## Available Scripts
+이 프로젝트는 한국의 모든 주요 라디오 방송을 하나의 웹 애플리케이션에서 편리하게 청취할 수 있도록 돕는 것을 목표로 합니다. 사용자들은 이 앱을 통해 다양한 한국 라디오 채널을 쉽게 탐색하고 실시간으로 스트리밍을 즐길 수 있습니다.
 
-In the project directory, you can run:
+## 주요 기능
 
-### `npm start`
+*   **다양한 한국 라디오 채널 청취:** 주요 방송사의 라디오 스트리밍을 지원합니다.
+*   **간편한 인터페이스:** 직관적인 디자인으로 쉽게 채널을 선택하고 재생할 수 있습니다.
+*   **백그라운드 재생:** 앱을 사용하는 동안에도 라디오를 계속 청취할 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 사용 기술
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+이 프로젝트는 다음과 같은 기술 스택을 활용하여 개발되었습니다:
 
-### `npm test`
+*   **프론트엔드:**
+    *   **React:** 사용자 인터페이스 구축을 위한 JavaScript 라이브러리.
+    *   **TypeScript:** 코드의 안정성과 유지보수성을 높이기 위한 JavaScript의 상위 집합.
+    *   **CSS:** 스타일링.
+*   **백엔드 (프록시 서버):**
+    *   **Node.js:** 라디오 스트리밍의 CORS(Cross-Origin Resource Sharing) 문제 및 기타 네트워크 문제를 해결하기 위한 프록시 서버 구현에 사용됩니다. `request` 라이브러리를 활용하며, 포트 `3010`에서 실행됩니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 프로젝트 실행 방법
 
-### `npm run build`
+### 1. 저장소 클론
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone [저장소_URL]
+cd radioweb
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. 의존성 설치
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+프론트엔드와 백엔드(프록시 서버)의 의존성을 각각 설치해야 합니다.
 
-### `npm run eject`
+```bash
+# 프론트엔드 의존성 설치
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 백엔드(프록시 서버) 의존성 설치 (server.js가 있는 디렉토리에서 실행)
+# 이 프로젝트에서는 package.json에 모든 의존성이 포함되어 있으므로,
+# npm install 한 번으로 충분할 수 있습니다.
+# 만약 server.js에 별도의 package.json이 있다면 해당 디렉토리로 이동하여 npm install을 실행하세요.
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. 애플리케이션 실행
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**프록시 서버 실행:**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+node server.js
+```
+프록시 서버는 기본적으로 `http://localhost:3010`에서 실행됩니다.
 
-## Learn More
+**React 앱 실행:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
+React 앱은 기본적으로 `http://localhost:3002`에서 실행됩니다.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 현재 상태 및 알려진 문제
+
+*   **라디오 스트리밍 URL 유효성:** `src/stations.ts` 파일에 정의된 라디오 스트리밍 URL들이 현재 유효하지 않을 수 있습니다. 안정적인 스트리밍을 위해서는 유효한 URL로 업데이트가 필요합니다. (사용자가 수동으로 유효한 URL을 찾아 제공할 예정입니다.)
+*   **네트워크/DNS 문제:** `aac.cbs.co.kr`과 같은 특정 URL에 대한 `ENOTFOUND` 오류가 발생할 수 있습니다. 이는 네트워크 또는 DNS 설정 문제일 수 있습니다.
+
+## 기여 방법
+
+프로젝트에 기여하고 싶으시다면 언제든지 환영합니다. 이슈를 등록하거나 Pull Request를 생성해주세요.
+
+## 라이선스
+
+[라이선스 정보 (예: MIT License)]
